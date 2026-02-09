@@ -15,142 +15,59 @@
 
   <h3 class="text-center mb-3">📊 Fundamental Analysis</h3>
 
-  <div id="overall" class="overall-score mb-4">
-    Overall Stock Quality
+  <div id="overall" class="overall-score neutral mb-4">
+    ENTER DATA TO ANALYZE
   </div>
 
   <div class="row g-3 p-3">
 
-    <div class="col-12 col-md-4 ">
-      <div class="metric-card" id="mcap">
-        <div class="label">Market Cap (₹ Cr)</div>
-        <input type="number" oninput="checkMCAP(this)">
-      </div>
-    </div>
-
-    <div class="col-6 col-md-4">
-      <div class="metric-card" id="pe">
-        <div class="label">Stock P/E</div>
-        <input type="number" oninput="checkPE()">
-      </div>
-    </div>
-
-    <div class="col-6 col-md-4">
-      <div class="metric-card" id="indpe">
-        <div class="label">Industry P/E</div>
-        <input type="number" oninput="checkPE()">
-      </div>
-    </div>
-
-    <div class="col-6 col-md-4">
-      <div class="metric-card" id="peg">
-        <div class="label">PEG Ratio</div>
-        <input type="number" step="0.01" oninput="checkPEG(this)">
-      </div>
-    </div>
-
-    <div class="col-6 col-md-4">
-      <div class="metric-card" id="roce">
-        <div class="label">ROCE (%)</div>
-        <input type="number" oninput="checkROCE(this)">
-      </div>
-    </div>
-
-    <div class="col-6 col-md-4">
-      <div class="metric-card" id="roe">
-        <div class="label">ROE (%)</div>
-        <input type="number" oninput="checkROE(this)">
-      </div>
-    </div>
-
-    <div class="col-6 col-md-4">
-      <div class="metric-card" id="profit">
-        <div class="label">Profit Growth (%)</div>
-        <input type="number" oninput="checkProfitGrowth(this)">
-      </div>
-    </div>
-
-    <div class="col-6 col-md-4">
-      <div class="metric-card" id="sales">
-        <div class="label">Sales Growth (%)</div>
-        <input type="number" oninput="checkSalesGrowth(this)">
-      </div>
-    </div>
-
-    <div class="col-6 col-md-4">
-      <div class="metric-card" id="opm">
-        <div class="label">Operating Margin (%)</div>
-        <input type="number" oninput="checkOPM(this)">
-      </div>
-    </div>
-
-    <div class="col-6 col-md-4">
-      <div class="metric-card" id="debttrend">
-        <div class="label">Debt Trend</div>
-        <select onchange="checkDebtTrend(this)">
-          <option value="">Select</option>
-          <option value="low">Low / Stable</option>
-          <option value="moderate">Moderate</option>
-          <option value="high">Rising</option>
+    <div class="col-12">
+      <div class="metric-card" id="sector">
+        <div class="label">Sector</div>
+        <select id="sectorSelect" onchange="onSectorChange(this)">
+         <option value="">Select</option>
+         <option value="1">IT / Software</option>
+         <option value="2">Banking & NBFC</option>
+         <option value="3">EPC / Infra</option>
+         <option value="4">Manufacturing / Industrials</option>
+         <option value="5">Pharma & Healthcare</option>
+         <option value="6">FMCG / Consumer Staples</option>
+         <option value="7">Metals & Commodities</option>
         </select>
       </div>
     </div>
 
-    <div class="col-6 col-md-4">
-      <div class="metric-card" id="de">
-        <div class="label">Debt to Equity</div>
-        <input type="number" step="0.01" oninput="checkDebtEquity(this)">
-      </div>
-    </div>
+    <div class="col-6 col-md-4"><div class="metric-card" id="mcap"><div class="label">Market Cap</div><input type="number" oninput="checkMCAP(this)"></div></div>
+    <div class="col-6 col-md-4"><div class="metric-card" id="pe"><div class="label">Stock P/E</div><input type="number" oninput="checkPE()"></div></div>
+    <div class="col-6 col-md-4"><div class="metric-card" id="indpe"><div class="label">Industry P/E</div><input type="number" oninput="checkPE()"></div></div>
 
-    <div class="col-6 col-md-4">
-      <div class="metric-card" id="icr">
-        <div class="label">Interest Coverage</div>
-        <input type="number" oninput="checkICR(this)">
-      </div>
-    </div>
+    <div class="col-6 col-md-4"><div class="metric-card" id="peg"><div class="label">PEG</div><input type="number" step="0.01" oninput="checkPEG(this)"></div></div>
+    <div class="col-6 col-md-4"><div class="metric-card" id="roce"><div class="label">ROCE %</div><input type="number" oninput="checkROCE(this)"></div></div>
+    <div class="col-6 col-md-4"><div class="metric-card" id="roe"><div class="label">ROE %</div><input type="number" oninput="checkROE(this)"></div></div>
 
-    <div class="col-6 col-md-4">
-      <div class="metric-card" id="eps">
-        <div class="label">EPS</div>
-        <input type="number" oninput="checkIntrinsic()">
-      </div>
-    </div>
+    <div class="col-6 col-md-4"><div class="metric-card" id="profit"><div class="label">Profit Growth %</div><input type="number" oninput="checkProfitGrowth(this)"></div></div>
+    <div class="col-6 col-md-4"><div class="metric-card" id="sales"><div class="label">Sales Growth %</div><input type="number" oninput="checkSalesGrowth(this)"></div></div>
+    <div class="col-6 col-md-4"><div class="metric-card" id="opm"><div class="label">Operating Margin %</div><input type="number" oninput="checkOPM(this)"></div></div>
 
-    <div class="col-6 col-md-4">
-      <div class="metric-card" id="price">
-        <div class="label">Market Price</div>
-        <input type="number" oninput="checkIntrinsic()">
-      </div>
-    </div>
+    <div class="col-6 col-md-4"><div class="metric-card" id="debttrend"><div class="label">Debt Trend</div>
+      <select onchange="checkDebtTrend(this)">
+        <option value="">Select</option>
+        <option value="low">Low / Stable</option>
+        <option value="moderate">Moderate</option>
+        <option value="high">Rising</option>
+      </select>
+    </div></div>
 
-    <div class="col-6 col-md-4">
-      <div class="metric-card" id="iv">
-        <div class="label">Intrinsic Value (Auto)</div>
-        <input type="number" disabled>
-      </div>
-    </div>
+    <div class="col-6 col-md-4"><div class="metric-card" id="de"><div class="label">Debt / Equity</div><input type="number" step="0.01" oninput="checkDE(this)"></div></div>
+    <div class="col-6 col-md-4"><div class="metric-card" id="icr"><div class="label">Interest Coverage</div><input type="number" oninput="checkICR(this)"></div></div>
 
-    <div class="col-6 col-md-4">
-      <div class="metric-card" id="pb">
-        <div class="label">P/B Ratio</div>
-        <input type="number" step="0.01" oninput="checkPB(this)">
-      </div>
-    </div>
+    <div class="col-6 col-md-4"><div class="metric-card" id="eps"><div class="label">EPS</div><input type="number" oninput="checkIntrinsic()"></div></div>
+    <div class="col-6 col-md-4"><div class="metric-card" id="price"><div class="label">Market Price</div><input type="number" oninput="checkIntrinsic()"></div></div>
+    <div class="col-6 col-md-4"><div class="metric-card" id="iv"><div class="label">Intrinsic Value</div><input type="number" disabled></div></div>
 
-    <div class="col-6 col-md-4">
-      <div class="metric-card" id="ph">
-        <div class="label">Promoter Holding (%)</div>
-        <input type="number" oninput="checkPromoterHolding(this)">
-      </div>
-    </div>
-
-    <div class="col-6 col-md-4">
-      <div class="metric-card" id="pp">
-        <div class="label">Promoter Pledge (%)</div>
-        <input type="number" oninput="checkPromoterPledge(this)">
-      </div>
-    </div>
+    <div class="col-6 col-md-4"><div class="metric-card" id="pb"><div class="label">P/B Ratio</div><input type="number" step="0.01" oninput="checkPB(this)"></div></div>
+    <div class="col-6 col-md-4"><div class="metric-card" id="ph"><div class="label">Promoter Holding %</div><input type="number" oninput="checkPH(this)"></div></div>
+    <div class="col-6 col-md-4"><div class="metric-card" id="pp"><div class="label">Promoter Pledge %</div><input type="number" oninput="checkPP(this)"></div></div>
 
   </div>
 </div>
